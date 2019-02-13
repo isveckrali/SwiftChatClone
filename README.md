@@ -1,4 +1,4 @@
-<h1>Swift Chath Clone<h1>
+<h1>Swift Chat Clone</h1>
 Allows users to send text messages to each other.
 
 <h2> Externally used library </h2>
