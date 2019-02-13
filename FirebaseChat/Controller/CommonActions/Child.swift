@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class Child {
+    
+    static var USERS:String = "users"
+    static var CHAT_INBOX:String = "chatInbox"
+    static var CHAT_LAST:String = "chatLast"
+    static var CHATS:String = "chats"
+    
+}

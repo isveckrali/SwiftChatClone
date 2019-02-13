@@ -18,4 +18,17 @@ class Helper {
         vc.present(alert, animated: true, completion: nil)
         
     }
+    
+    static func imageLoad(imageView:UIImageView, url:String) {
+        
+        let downloadTask = URLSession.shared.dataTask(with: URL(string: url)!) { (data, urlResponse, error) in
+            if error == nil && data != nil {
+                let image = UIImage(data: data!)
+                DispatchQueue.main.async {
+                    imageView.image = image
+                }
+            }
+        }
+        downloadTask.resume()
+    }
 }

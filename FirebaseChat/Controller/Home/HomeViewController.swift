@@ -38,8 +38,13 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         if item.tag == 0 {
             
-            print("Chat")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "inboxViewController") as! InboxViewController
+            self.present(vc, animated: true, completion: nil)
+            
         } else if item.tag == 1 {
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+            self.present(vc, animated: true, completion: nil)
             
         }
         
@@ -77,6 +82,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         let databaseRef = Database.database().reference()
         
         databaseRef.child(Child.USERS).observe(.value) { (snapshot) in
+            self.list.removeAll()
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let dict = snap.value as! NSDictionary
